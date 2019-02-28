@@ -1,0 +1,46 @@
+%% Lecture 2-1 Liner Regression
+% Author: AKHTAR JAMIL
+% Linear regression Demo
+%% Setting environment
+close all;
+clc;
+clear;
+
+%% Linear regression
+
+% number of observations
+n = 100;
+%add some noise to data
+noise = randn(n,1);
+
+% generate some random data
+x= rand(n,1)*10;
+y = 3+ 2.5*x+noise;
+
+meanX = mean(x);
+meanY=mean(y);
+sumXY = sum((x-meanX) .* (y-meanY));
+sumX =sum((x-meanX).^2);
+b1 = sumXY/sumX;
+b0 = meanY - b1*meanX;
+
+plot(x,y,'r.', 'MarkerSize',15);
+grid on
+
+% fit  the line b0 + b1*x
+pred= b0 + b1*x;
+hold on;
+plot(x,pred,'g-', 'LineWidth',3)
+
+
+
+
+
+
+
+
+
+
+
+
+
